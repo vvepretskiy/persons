@@ -24,7 +24,7 @@ This project is a web application that retrieves and displays characters from th
 
 - **Backend**: NestJS
 - **Frontend**: Angular
-- **Database**: In-memory
+- **Cache**: In-memory (Trie, indexed object and redis)
 - **Styling**: Tailwind
 - **Testing**: Jest
 
