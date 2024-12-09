@@ -72,11 +72,11 @@
       },
       {
         "file": "package.json",
-        "hash": "16419853874157616340"
+        "hash": "371485228846743995"
       },
       {
         "file": "pnpm-lock.yaml",
-        "hash": "5695868522370069324"
+        "hash": "5224316891065034092"
       },
       {
         "file": "postcss.config.js",
@@ -92,6 +92,160 @@
       }
     ],
     "projectFileMap": {
+      "server": [
+        {
+          "file": "apps/server/.env",
+          "hash": "1596013057173725262"
+        },
+        {
+          "file": "apps/server/.env.production",
+          "hash": "1596013057173725262"
+        },
+        {
+          "file": "apps/server/eslint.config.js",
+          "hash": "17472210594086834595"
+        },
+        {
+          "file": "apps/server/jest.config.ts",
+          "hash": "13475193442835630715"
+        },
+        {
+          "file": "apps/server/project.json",
+          "hash": "8559520279139673490"
+        },
+        {
+          "file": "apps/server/src/app.module.ts",
+          "hash": "5725303780497077165",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/server/src/assets/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/server/src/main.ts",
+          "hash": "3502613867768675971",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/core",
+            "npm:helmet",
+            "npm:dotenv"
+          ]
+        },
+        {
+          "file": "apps/server/src/people/people.cache.spec.ts",
+          "hash": "2676095622134852001",
+          "deps": [
+            "npm:@nestjs/testing",
+            "shared"
+          ]
+        },
+        {
+          "file": "apps/server/src/people/people.cache.ts",
+          "hash": "2854275135351742002",
+          "deps": [
+            "npm:@nestjs/common",
+            "shared"
+          ]
+        },
+        {
+          "file": "apps/server/src/people/people.controller.spec.ts",
+          "hash": "12138315730699569925",
+          "deps": [
+            "npm:@nestjs/testing"
+          ]
+        },
+        {
+          "file": "apps/server/src/people/people.controller.ts",
+          "hash": "12408492064077799643",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/server/src/people/people.module.ts",
+          "hash": "16673348104513693454",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/cache-manager"
+          ]
+        },
+        {
+          "file": "apps/server/src/people/people.provider.spec.ts",
+          "hash": "14027473208572686393",
+          "deps": [
+            "npm:@nestjs/testing",
+            "npm:@nestjs/cache-manager",
+            "npm:axios"
+          ]
+        },
+        {
+          "file": "apps/server/src/people/people.provider.ts",
+          "hash": "3629886322026746814",
+          "deps": [
+            "npm:@nestjs/common",
+            "shared",
+            "npm:axios",
+            "npm:@nestjs/cache-manager"
+          ]
+        },
+        {
+          "file": "apps/server/src/people/people.service.spec.ts",
+          "hash": "9749276578270014192",
+          "deps": [
+            "npm:@nestjs/testing",
+            "shared"
+          ]
+        },
+        {
+          "file": "apps/server/src/people/people.service.ts",
+          "hash": "3160582564988554228",
+          "deps": [
+            "npm:@nestjs/common",
+            "shared"
+          ]
+        },
+        {
+          "file": "apps/server/src/utils/parser.spec.ts",
+          "hash": "11529058859561924844"
+        },
+        {
+          "file": "apps/server/src/utils/parser.ts",
+          "hash": "11688407053395654651",
+          "deps": [
+            "shared"
+          ]
+        },
+        {
+          "file": "apps/server/src/utils/trie.spec.ts",
+          "hash": "18159790369100042434"
+        },
+        {
+          "file": "apps/server/src/utils/trie.ts",
+          "hash": "5146428782268572216"
+        },
+        {
+          "file": "apps/server/tsconfig.app.json",
+          "hash": "3171572500325445971"
+        },
+        {
+          "file": "apps/server/tsconfig.json",
+          "hash": "3490524966360018312"
+        },
+        {
+          "file": "apps/server/tsconfig.spec.json",
+          "hash": "11550347367511341917"
+        },
+        {
+          "file": "apps/server/webpack.config.js",
+          "hash": "15965428822129202443",
+          "deps": [
+            "npm:@nx/webpack"
+          ]
+        }
+      ],
       "frontend": [
         {
           "file": "apps/frontend/eslint.config.js",
@@ -341,160 +495,6 @@
         {
           "file": "libs/shared/tsconfig.lib.json",
           "hash": "15798669420171897096"
-        }
-      ],
-      "server": [
-        {
-          "file": "apps/server/.env",
-          "hash": "1596013057173725262"
-        },
-        {
-          "file": "apps/server/.env.production",
-          "hash": "1596013057173725262"
-        },
-        {
-          "file": "apps/server/eslint.config.js",
-          "hash": "17472210594086834595"
-        },
-        {
-          "file": "apps/server/jest.config.ts",
-          "hash": "13475193442835630715"
-        },
-        {
-          "file": "apps/server/project.json",
-          "hash": "8559520279139673490"
-        },
-        {
-          "file": "apps/server/src/app.module.ts",
-          "hash": "5725303780497077165",
-          "deps": [
-            "npm:@nestjs/common"
-          ]
-        },
-        {
-          "file": "apps/server/src/assets/.gitkeep",
-          "hash": "3244421341483603138"
-        },
-        {
-          "file": "apps/server/src/main.ts",
-          "hash": "3502613867768675971",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/core",
-            "npm:helmet",
-            "npm:dotenv"
-          ]
-        },
-        {
-          "file": "apps/server/src/people/people.cache.spec.ts",
-          "hash": "2676095622134852001",
-          "deps": [
-            "npm:@nestjs/testing",
-            "shared"
-          ]
-        },
-        {
-          "file": "apps/server/src/people/people.cache.ts",
-          "hash": "2854275135351742002",
-          "deps": [
-            "npm:@nestjs/common",
-            "shared"
-          ]
-        },
-        {
-          "file": "apps/server/src/people/people.controller.spec.ts",
-          "hash": "12138315730699569925",
-          "deps": [
-            "npm:@nestjs/testing"
-          ]
-        },
-        {
-          "file": "apps/server/src/people/people.controller.ts",
-          "hash": "12408492064077799643",
-          "deps": [
-            "npm:@nestjs/common"
-          ]
-        },
-        {
-          "file": "apps/server/src/people/people.module.ts",
-          "hash": "16673348104513693454",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/cache-manager"
-          ]
-        },
-        {
-          "file": "apps/server/src/people/people.provider.spec.ts",
-          "hash": "14027473208572686393",
-          "deps": [
-            "npm:@nestjs/testing",
-            "npm:@nestjs/cache-manager",
-            "npm:axios"
-          ]
-        },
-        {
-          "file": "apps/server/src/people/people.provider.ts",
-          "hash": "3629886322026746814",
-          "deps": [
-            "npm:@nestjs/common",
-            "shared",
-            "npm:axios",
-            "npm:@nestjs/cache-manager"
-          ]
-        },
-        {
-          "file": "apps/server/src/people/people.service.spec.ts",
-          "hash": "9749276578270014192",
-          "deps": [
-            "npm:@nestjs/testing",
-            "shared"
-          ]
-        },
-        {
-          "file": "apps/server/src/people/people.service.ts",
-          "hash": "3160582564988554228",
-          "deps": [
-            "npm:@nestjs/common",
-            "shared"
-          ]
-        },
-        {
-          "file": "apps/server/src/utils/parser.spec.ts",
-          "hash": "11529058859561924844"
-        },
-        {
-          "file": "apps/server/src/utils/parser.ts",
-          "hash": "11688407053395654651",
-          "deps": [
-            "shared"
-          ]
-        },
-        {
-          "file": "apps/server/src/utils/trie.spec.ts",
-          "hash": "18159790369100042434"
-        },
-        {
-          "file": "apps/server/src/utils/trie.ts",
-          "hash": "5146428782268572216"
-        },
-        {
-          "file": "apps/server/tsconfig.app.json",
-          "hash": "3171572500325445971"
-        },
-        {
-          "file": "apps/server/tsconfig.json",
-          "hash": "3490524966360018312"
-        },
-        {
-          "file": "apps/server/tsconfig.spec.json",
-          "hash": "11550347367511341917"
-        },
-        {
-          "file": "apps/server/webpack.config.js",
-          "hash": "15965428822129202443",
-          "deps": [
-            "npm:@nx/webpack"
-          ]
         }
       ]
     }
