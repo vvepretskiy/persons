@@ -1,0 +1,18 @@
+<div class="relative flex items-center w-full">
+    <input
+      type="text"
+      [(ngModel)]="filterTerm"
+      (input)="onFilter()"
+      placeholder="Search..."
+      class="border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 pr-10 w-full" 
+    />
+    <button
+      *ngIf="filterTerm"
+      (click)="clearFilter()"
+      class="absolute right-2 text-gray-500 hover:text-gray-700 focus:outline-none"
+      aria-label="Clear"
+    >
+      &times; <!-- This is the "X" character -->
+    </button>
+  </div>
+  

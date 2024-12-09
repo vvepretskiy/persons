@@ -1,0 +1,2 @@
+[1m[33mThe project shared is using the 'generatePackageJson' option which is deprecated for library projects. It should only be used for applications.[39m[22m
+[1m[33mFor libraries, configure the project to use the '@nx/dependency-checks' ESLint rule instead (https://nx.dev/nx-api/eslint-plugin/documents/dependency-checks).[39m[22m

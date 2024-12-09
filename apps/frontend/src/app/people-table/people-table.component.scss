@@ -1,0 +1,10 @@
+.people-table {
+    width: min(1120px, 100vw);
+    margin-inline: auto;
+}
+
+.table-header {
+    @media (width < 1120px) {
+        padding-inline: 0.5rem;
+    }
+}
