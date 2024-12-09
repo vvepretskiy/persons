@@ -1,8 +1,8 @@
 {
   "run": {
-    "command": "nx run server:build:development",
-    "startTime": "2024-12-09T17:52:08.610Z",
-    "endTime": "2024-12-09T17:52:08.654Z",
+    "command": "nx build frontend",
+    "startTime": "2024-12-09T17:57:32.782Z",
+    "endTime": "2024-12-09T17:57:41.347Z",
     "inner": false
   },
   "tasks": [
@@ -10,22 +10,22 @@
       "taskId": "shared:build",
       "target": "build",
       "projectName": "shared",
-      "hash": "11844809420803276857",
-      "startTime": "2024-12-09T17:52:08.620Z",
-      "endTime": "2024-12-09T17:52:08.631Z",
+      "hash": "12633435108984211924",
+      "startTime": "2024-12-09T17:57:32.797Z",
+      "endTime": "2024-12-09T17:57:32.804Z",
       "params": "",
       "cacheStatus": "local-cache-hit",
       "status": 0
     },
     {
-      "taskId": "server:build",
+      "taskId": "frontend:build:production",
       "target": "build",
-      "projectName": "server",
-      "hash": "783131167769599987",
-      "startTime": "2024-12-09T17:52:08.642Z",
-      "endTime": "2024-12-09T17:52:08.649Z",
+      "projectName": "frontend",
+      "hash": "14335180078847464784",
+      "startTime": "2024-12-09T17:57:32.813Z",
+      "endTime": "2024-12-09T17:57:41.346Z",
       "params": "",
-      "cacheStatus": "local-cache-hit",
+      "cacheStatus": "cache-miss",
       "status": 0
     }
   ]
