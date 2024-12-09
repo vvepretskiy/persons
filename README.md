@@ -1,82 +1,78 @@
-# Persons
+# Star Wars Characters Directory
 
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
+This project is a web application that retrieves and displays characters from the Star Wars universe. Users can view a table of characters and filter them based on various criteria. The application is built using NestJS for the backend and Angular for the frontend, both managed with Nx.
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is almost ready ✨.
+## Table of Contents
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/getting-started/tutorials/angular-monorepo-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+- [Features](#features)
+- [Technologies](#technologies)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Running the Application](#running-the-application)
+- [API Endpoints](#api-endpoints)
+- [Configuration](#configuration)
+- [License](#license)
 
-## Finish your CI setup
+## Features
 
-[Click here to finish setting up your workspace!](https://cloud.nx.app/connect/dDsyYiYirs)
+- View a list of Star Wars characters in a table format (*name, birth_year, homeworld, the homeworld's terrain and aggregated value average_person_height*).
+- Filter characters by name, homeworld, birth_year and terrain.
+- Responsive design for optimal viewing on various devices.
 
+## Technologies
 
-## Run tasks
+- **Backend**: NestJS
+- **Frontend**: Angular
+- **Database**: In-memory
+- **Styling**: Tailwind
+- **Testing**: Jest
 
-To run the dev server for your app, use:
+## Getting Started
 
-```sh
-npx nx serve frontend
-```
+### Prerequisites
 
-To create a production bundle:
+Make sure you have the following installed:
 
-```sh
-npx nx build frontend
-```
+- Node.js (version 14 or later)
+- pnpm (Performant Node Package Manager)
+- Nx CLI
 
-To see all available targets to run for a project, run:
+### Installation
 
-```sh
-npx nx show project frontend
-```
+1. Clone the repository:
 
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
+   ```bash
+   git clone https://github.com/vvepretskyi/persons.git
 
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+2. Install dependencies:
 
-## Add new projects
+   ```bash
+   cd persons
+   pnpm i
 
-While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
+3. Run Backend (defualt url: http://localhost:3000/api)
 
-Use the plugin's generator to create new projects.
+   ```bash
+   nx serve server
 
-To generate a new application, use:
+4. Run Frontend (defualt url: http://localhost:4200)
 
-```sh
-npx nx g @nx/angular:app demo
-```
+   ```bash
+   nx serve frontend
 
-To generate a new library, use:
+## Configuration
+The NestJS backend uses a .env file where users can configure cache settings and the environment for the frontend. Make sure to create a .env file in the root of the backend directory and set the necessary environment variables as needed.
 
-```sh
-npx nx g @nx/angular:lib mylib
-```
+.env file
 
-You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
+    EXPIRE_TIME_HOMEWORLD_CACHE=36000
+    MAX_AMOUNT_HOMEWORLD_CACHE=100
+    CACHE_DURATION=240000
 
-[Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+## API Endpoints
 
+[swapi.dev](https://swapi.dev/api/)
 
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Install Nx Console
-
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
-
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Useful links
-
-Learn more:
-
-- [Learn more about this workspace setup](https://nx.dev/getting-started/tutorials/angular-monorepo-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-And join the Nx community:
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+## License
+MIT

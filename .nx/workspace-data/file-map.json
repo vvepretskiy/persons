@@ -31,64 +31,64 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": ".editorconfig",
-        "hash": "5443105041930014821"
-      },
-      {
-        "file": ".gitignore",
-        "hash": "16399683567307215337"
-      },
-      {
-        "file": ".prettierignore",
-        "hash": "5407418692668764289"
-      },
-      {
-        "file": ".prettierrc",
-        "hash": "16267754514737964994"
-      },
-      {
         "file": "README.md",
-        "hash": "705002472813125337"
+        "hash": "11064886314879601636"
       },
       {
         "file": "eslint.config.js",
         "hash": "2478217381773231556"
       },
       {
-        "file": "jest.config.ts",
-        "hash": "3494843969422251966"
-      },
-      {
-        "file": "jest.preset.js",
-        "hash": "9430166341120122740"
-      },
-      {
-        "file": "nx.json",
-        "hash": "138813329309884429"
-      },
-      {
-        "file": "package-lock.json",
-        "hash": "13548949283553571595"
-      },
-      {
-        "file": "package.json",
-        "hash": "371485228846743995"
-      },
-      {
-        "file": "pnpm-lock.yaml",
-        "hash": "5224316891065034092"
-      },
-      {
-        "file": "postcss.config.js",
-        "hash": "8055263870272897227"
+        "file": "tsconfig.base.json",
+        "hash": "10935134244455161364"
       },
       {
         "file": "tailwind.config.js",
         "hash": "15711858304160302265"
       },
       {
-        "file": "tsconfig.base.json",
-        "hash": "10935134244455161364"
+        "file": "package-lock.json",
+        "hash": "13548949283553571595"
+      },
+      {
+        "file": "nx.json",
+        "hash": "138813329309884429"
+      },
+      {
+        "file": "jest.config.ts",
+        "hash": "3494843969422251966"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "5407418692668764289"
+      },
+      {
+        "file": "pnpm-lock.yaml",
+        "hash": "5224316891065034092"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "16399683567307215337"
+      },
+      {
+        "file": ".prettierrc",
+        "hash": "16267754514737964994"
+      },
+      {
+        "file": "postcss.config.js",
+        "hash": "8055263870272897227"
+      },
+      {
+        "file": "jest.preset.js",
+        "hash": "9430166341120122740"
+      },
+      {
+        "file": ".editorconfig",
+        "hash": "5443105041930014821"
+      },
+      {
+        "file": "package.json",
+        "hash": "371485228846743995"
       }
     ],
     "projectFileMap": {
