@@ -41,34 +41,33 @@ export class PeopleCache {
     }
 
     private async tryToGetFilterCache(page: number, word: string) {
-        const cacheData = this.peopleFilterCache.search(word);
+        const notCaseSensetiveWord = word.toLocaleLowerCase();
+        const cacheData = this.peopleFilterCache.search(notCaseSensetiveWord);
 
         if (cacheData?.isMatched) {
-            Logger.log(`Search: ${word} isMatched`);
+            Logger.log(`Search: ${notCaseSensetiveWord} isMatched`);
             return cacheData.data[page];
         }
 
         let data: TypeCachedPeopleByPage;
 
         if (!cacheData) {
-            Logger.log(`Fetch data page = ${page} search = ${word}`);
+            Logger.log(`Fetch data page = ${page} search = ${notCaseSensetiveWord}`);
 
             await this.fetch(page);
 
             data = this.peoplePageCache;
         } else {
-            Logger.log(`Search: ${word} not isMatched`);
+            Logger.log(`Search: ${notCaseSensetiveWord} not isMatched`);
             data = cacheData.data;
         }
 
         const allData = Object.keys(data).flatMap((pageNumber) => {
             return data[parseInt(pageNumber)].data.filter((person) => {
-                const result = Object.keys(person).some((key) => key !== 'height' && person[key].indexOf(word) !== -1);
+                const result = Object.keys(person).some((key) => key !== 'height' && person[key].toLocaleLowerCase().indexOf(notCaseSensetiveWord) !== -1);
                 return result;
             })
         });
-
-        console.log('tryToGetFilterCache', allData);
 
         const totalDataCount = allData.length;
 
@@ -85,7 +84,7 @@ export class PeopleCache {
                 };
             }
 
-            this.peopleFilterCache.add(word, cache);
+            this.peopleFilterCache.add(notCaseSensetiveWord, cache);
             return page <= count ? cache[page] : cache[count];
         } else {
             const emptyData = {
@@ -96,7 +95,7 @@ export class PeopleCache {
                 }
             };
 
-            this.peopleFilterCache.add(word, emptyData);
+            this.peopleFilterCache.add(notCaseSensetiveWord, emptyData);
             return emptyData[1];
         }
     }

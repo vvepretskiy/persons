@@ -3240,15 +3240,6 @@
         "hash": "sha512-9zESzOO5aDByvhIAsOy9TbpZ0Ur2AJbUI7UT73kcUTS2mxAMHOBaa1st/jAymNoCtvrit99kkzT1FZuXVcgfIQ=="
       }
     },
-    "npm:@nestjs/cache-manager": {
-      "type": "npm",
-      "name": "npm:@nestjs/cache-manager",
-      "data": {
-        "version": "2.3.0",
-        "packageName": "@nestjs/cache-manager",
-        "hash": "sha512-pxeBp9w/s99HaW2+pezM1P3fLiWmUEnTUoUMLa9UYViCtjj0E0A19W/vaT5JFACCzFIeNrwH4/16jkpAhQ25Vw=="
-      }
-    },
     "npm:@nestjs/common": {
       "type": "npm",
       "name": "npm:@nestjs/common",
@@ -6334,15 +6325,6 @@
         "version": "3.0.1",
         "packageName": "cache-manager-redis-store",
         "hash": "sha512-o560kw+dFqusC9lQJhcm6L2F2fMKobJ5af+FoR2PdnMVdpQ3f3Bz6qzvObTGyvoazQJxjQNWgMQeChP4vRTuXQ=="
-      }
-    },
-    "npm:cache-manager": {
-      "type": "npm",
-      "name": "npm:cache-manager",
-      "data": {
-        "version": "5.7.6",
-        "packageName": "cache-manager",
-        "hash": "sha512-wBxnBHjDxF1RXpHCBD6HGvKER003Ts7IIm0CHpggliHzN1RZditb7rXoduE1rplc2DEFYKxhLKgFuchXMJje9w=="
       }
     },
     "npm:call-bind-apply-helpers": {
@@ -10440,15 +10422,6 @@
         "hash": "sha512-gvVijfZvn7R+2qyPX8mAuKcFGDf6Nc61GdvGafQsHL0sBIxfKzA+usWn4GFC/bk+QdwPUD4kWFJLhElipq+0VA=="
       }
     },
-    "npm:lodash.clonedeep": {
-      "type": "npm",
-      "name": "npm:lodash.clonedeep",
-      "data": {
-        "version": "4.5.0",
-        "packageName": "lodash.clonedeep",
-        "hash": "sha512-H5ZhCF25riFd9uB5UCkVKo61m3S/xZk1x4wA6yp/L3RFP6Z/eHH1ymQcGLo7J3GMPfm0V/7m1tryHuGVxpqEBQ=="
-      }
-    },
     "npm:lodash.clonedeepwith": {
       "type": "npm",
       "name": "npm:lodash.clonedeepwith",
@@ -12445,15 +12418,6 @@
         "version": "2.0.1",
         "packageName": "process-nextick-args",
         "hash": "sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag=="
-      }
-    },
-    "npm:promise-coalesce": {
-      "type": "npm",
-      "name": "npm:promise-coalesce",
-      "data": {
-        "version": "1.1.2",
-        "packageName": "promise-coalesce",
-        "hash": "sha512-zLaJ9b8hnC564fnJH6NFSOGZYYdzrAJn2JUUIwzoQb32fG2QAakpDNM+CZo1km6keXkRXRM+hml1BFAPVnPkxg=="
       }
     },
     "npm:promise-inflight": {
@@ -22111,26 +22075,6 @@
       "type": "static"
     },
     {
-      "source": "npm:@nestjs/cache-manager",
-      "target": "npm:@nestjs/common",
-      "type": "static"
-    },
-    {
-      "source": "npm:@nestjs/cache-manager",
-      "target": "npm:@nestjs/core",
-      "type": "static"
-    },
-    {
-      "source": "npm:@nestjs/cache-manager",
-      "target": "npm:cache-manager",
-      "type": "static"
-    },
-    {
-      "source": "npm:@nestjs/cache-manager",
-      "target": "npm:rxjs",
-      "type": "static"
-    },
-    {
       "source": "npm:@nestjs/common",
       "target": "npm:iterare",
       "type": "static"
@@ -26798,26 +26742,6 @@
     {
       "source": "npm:cache-manager-redis-store",
       "target": "npm:redis",
-      "type": "static"
-    },
-    {
-      "source": "npm:cache-manager",
-      "target": "npm:eventemitter3@5.0.1",
-      "type": "static"
-    },
-    {
-      "source": "npm:cache-manager",
-      "target": "npm:lodash.clonedeep",
-      "type": "static"
-    },
-    {
-      "source": "npm:cache-manager",
-      "target": "npm:lru-cache@10.4.3",
-      "type": "static"
-    },
-    {
-      "source": "npm:cache-manager",
-      "target": "npm:promise-coalesce",
       "type": "static"
     },
     {

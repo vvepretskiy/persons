@@ -24,7 +24,7 @@ This project is a web application that retrieves and displays characters from th
 
 - **Backend**: NestJS
 - **Frontend**: Angular
-- **Cache**: In-memory (Trie, indexed object and redis)
+- **Cache**: In-memory (Trie, indexed object)
 - **Styling**: Tailwind
 - **Testing**: Jest
 
@@ -49,6 +49,7 @@ Make sure you have the following installed:
 
    ```bash
    cd persons
+   npm install -g pnpm
    pnpm i
 
 3. Run Backend (defualt url: http://localhost:3000/api)
@@ -69,6 +70,7 @@ The NestJS backend uses a .env file where users can configure cache settings and
     EXPIRE_TIME_HOMEWORLD_CACHE=36000
     MAX_AMOUNT_HOMEWORLD_CACHE=100
     CACHE_DURATION=240000
+    CACHE_DURATION_HOMEWORLD=240000
 
 ## API Endpoints
 
