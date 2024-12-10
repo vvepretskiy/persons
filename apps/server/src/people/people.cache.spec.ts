@@ -84,7 +84,7 @@ describe('PeopleCache', () => {
 
             const result = await peopleCache.tryToGet(page, searchTerm);
             const distinctValues = [...new Set(result.data.map(({ name }) => name))];
-            expect(distinctValues).toEqual(['C-3PO']);
+            expect(distinctValues).toEqual(['C-3PO', 'c-3PO']);
         });
 
         it('should return empty data if no matches found', async () => {

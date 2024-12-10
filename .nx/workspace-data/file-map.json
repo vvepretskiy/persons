@@ -31,64 +31,64 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": "jest.config.ts",
-        "hash": "3494843969422251966"
-      },
-      {
-        "file": "tsconfig.base.json",
-        "hash": "10935134244455161364"
-      },
-      {
-        "file": ".prettierrc",
-        "hash": "16267754514737964994"
-      },
-      {
-        "file": "package-lock.json",
-        "hash": "13548949283553571595"
-      },
-      {
-        "file": "postcss.config.js",
-        "hash": "8055263870272897227"
-      },
-      {
-        "file": ".editorconfig",
-        "hash": "5443105041930014821"
+        "file": "tailwind.config.js",
+        "hash": "15711858304160302265"
       },
       {
         "file": "README.md",
         "hash": "44592330161491391"
       },
       {
-        "file": "pnpm-lock.yaml",
-        "hash": "4688185358995787478"
+        "file": "jest.config.ts",
+        "hash": "3494843969422251966"
       },
       {
         "file": "jest.preset.js",
         "hash": "9430166341120122740"
       },
       {
-        "file": "tailwind.config.js",
-        "hash": "15711858304160302265"
-      },
-      {
-        "file": "nx.json",
-        "hash": "138813329309884429"
-      },
-      {
-        "file": "package.json",
-        "hash": "2199155304604626361"
-      },
-      {
-        "file": ".gitignore",
-        "hash": "16399683567307215337"
+        "file": ".editorconfig",
+        "hash": "5443105041930014821"
       },
       {
         "file": "eslint.config.js",
         "hash": "2478217381773231556"
       },
       {
+        "file": ".prettierrc",
+        "hash": "16267754514737964994"
+      },
+      {
+        "file": "pnpm-lock.yaml",
+        "hash": "4688185358995787478"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "13548949283553571595"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "16399683567307215337"
+      },
+      {
         "file": ".prettierignore",
         "hash": "5407418692668764289"
+      },
+      {
+        "file": "package.json",
+        "hash": "2199155304604626361"
+      },
+      {
+        "file": "postcss.config.js",
+        "hash": "8055263870272897227"
+      },
+      {
+        "file": "nx.json",
+        "hash": "138813329309884429"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "10935134244455161364"
       }
     ],
     "projectFileMap": {
@@ -387,7 +387,7 @@
         },
         {
           "file": "apps/server/src/people/people.cache.spec.ts",
-          "hash": "2676095622134852001",
+          "hash": "15865218222097164151",
           "deps": [
             "npm:@nestjs/testing",
             "shared"
@@ -424,16 +424,15 @@
         },
         {
           "file": "apps/server/src/people/people.provider.spec.ts",
-          "hash": "14027473208572686393",
+          "hash": "18152085229660683970",
           "deps": [
             "npm:@nestjs/testing",
-            "npm:@nestjs/cache-manager",
             "npm:axios"
           ]
         },
         {
           "file": "apps/server/src/people/people.provider.ts",
-          "hash": "3457272135508627145",
+          "hash": "14581964082291405091",
           "deps": [
             "npm:@nestjs/common",
             "shared",
@@ -469,7 +468,7 @@
         },
         {
           "file": "apps/server/src/utils/trie.spec.ts",
-          "hash": "18159790369100042434"
+          "hash": "16498995743486365077"
         },
         {
           "file": "apps/server/src/utils/trie.ts",

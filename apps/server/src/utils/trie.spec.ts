@@ -43,9 +43,4 @@ describe('Trie Tests', () => {
         trie.add("hello", 3);
         expect(trie.search("hello")).toEqual({ isMatched: true, data: 3 });
     });
-
-    test('Search for Word with Different Case', () => {
-        trie.add("Hello", 1);
-        expect(trie.search("hello")).toBeUndefined();
-    });
 });

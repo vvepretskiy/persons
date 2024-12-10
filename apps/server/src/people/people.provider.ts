@@ -40,7 +40,7 @@ export class PeopleProvider {
         }
     }
 
-    private async fetchHomeworl(data: Pick<Person, 'homeworld'>[]) {
+    public async fetchHomeworl(data: Pick<Person, 'homeworld'>[]) {
 
         const currentTime = Date.now();
 
@@ -63,8 +63,10 @@ export class PeopleProvider {
         try {
             const response = await axios.get<TypeHomeworldResponse>(homeworldUrl);
             this.homeworldCache[homeworldUrl] = response.data;
+            return this.homeworldCache[homeworldUrl];
         } catch(error) {
-            Logger.log('error', error);
+            Logger.error(`Error fetching homeworld data: ${error}`);
+            return UNKNOWN_HOMEWORLD;
         }
     }
 }

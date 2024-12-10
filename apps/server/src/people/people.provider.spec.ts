@@ -1,30 +1,17 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { PeopleProvider } from './people.provider';
-import { CACHE_MANAGER } from '@nestjs/cache-manager';
 import axios from 'axios';
 import { getAverageHeight } from '../utils/parser';
 
 jest.mock('axios');
-jest.mock('../utils/parser');
+const mockedAxios = axios as jest.Mocked<typeof axios>;
 
 describe('PeopleProvider', () => {
     let provider: PeopleProvider;
-    let cacheManager: { get: jest.Mock; set: jest.Mock };
 
     beforeEach(async () => {
-        cacheManager = {
-            get: jest.fn(),
-            set: jest.fn(),
-        };
-
         const module: TestingModule = await Test.createTestingModule({
-            providers: [
-                PeopleProvider,
-                {
-                    provide: CACHE_MANAGER,
-                    useValue: cacheManager,
-                },
-            ],
+            providers: [PeopleProvider],
         }).compile();
 
         provider = module.get<PeopleProvider>(PeopleProvider);
@@ -35,71 +22,102 @@ describe('PeopleProvider', () => {
     });
 
     describe('fetchData', () => {
-        it('should fetch data and return formatted people', async () => {
+        it('should fetch data and return formatted persons with average height', async () => {
             const mockResponse = {
                 data: {
                     results: [
-                        {
-                            name: 'Luke Skywalker',
-                            height: '172',
-                            homeworld: 'https://swapi.dev/api/planets/1/',
-                            birth_year: '19BBY', // Add the required field
-                        },
+                        { name: 'Luke Skywalker', birth_year: '29BBY', height: '172', homeworld: 'https://swapi.dev/api/planets/1/' },
+                        { name: 'Darth Vader', birth_year: '29BBY', height: '202', homeworld: 'https://swapi.dev/api/planets/1/' },
                     ],
-                    count: 1,
+                    count: 2,
                 },
             };
 
-            (axios.get as jest.Mock).mockResolvedValue(mockResponse);
-            (getAverageHeight as jest.Mock).mockReturnValue(172);
-            jest.spyOn(provider, 'fetchHomeworld').mockResolvedValue({ name: 'Tatooine', terrain: 'Desert' });
+            mockedAxios.get.mockResolvedValueOnce(mockResponse);
 
-            cacheManager.get.mockResolvedValueOnce({ name: 'Tatooine', terrain: 'Desert' });
+            const mockHomeworldResponse = { name: 'Tatooine', terrain: 'desert' };
+            mockedAxios.get.mockResolvedValueOnce({ data: mockHomeworldResponse });
 
             const result = await provider.fetchData(1);
 
             expect(result).toEqual({
                 data: [
-                    {
-                        name: 'Luke Skywalker',
-                        height: '172',
-                        homeworld: 'Unknown',
-                        terrain: 'Unknown',
-                        birth_year: '19BBY',
-                    },
+                    { name: 'Luke Skywalker', birth_year: '29BBY', height: '172', homeworld: 'Tatooine', terrain: 'desert' },
+                    { name: 'Darth Vader', birth_year: '29BBY', height: '202', homeworld: 'Tatooine', terrain: 'desert' },
                 ],
-                totalCount: 1,
-                averageHeight: 172,
+                totalCount: 2,
+                averageHeight: getAverageHeight([
+                    { height: '172' },
+                    { height: '202' },
+                ]),
             });
+        });
 
-            expect(axios.get).toHaveBeenCalledWith('https://swapi.dev/api/people/?page=1');
+        it('should handle errors when fetching data', async () => {
+            mockedAxios.get.mockRejectedValueOnce(new Error('Network Error'));
+
+            await expect(provider.fetchData(1)).rejects.toThrow('Network Error');
         });
     });
 
     describe('fetchHomeworld', () => {
         it('should fetch homeworld data and cache it', async () => {
             const homeworldUrl = 'https://swapi.dev/api/planets/1/';
-            const mockHomeworldResponse = { name: 'Tatooine', terrain: 'Desert' };
+            const mockHomeworldResponse = { name: 'Tatooine', terrain: 'desert' };
 
-            cacheManager.get.mockResolvedValue(null);
-            (axios.get as jest.Mock).mockResolvedValue({ data: mockHomeworldResponse });
+            mockedAxios.get.mockResolvedValueOnce({ data: mockHomeworldResponse });
+
+            const result = await provider.fetchHomeworld(homeworldUrl);
+
+            expect(result).toEqual(mockHomeworldResponse);
+            expect(provider['homeworldCache'][homeworldUrl]).toEqual(mockHomeworldResponse);
+        });
+
+        it('should return cached homeworld data if available', async () => {
+            const homeworldUrl = 'https://swapi.dev/api/planets/1/';
+            const mockHomeworldResponse = { name: 'Tatooine', terrain: 'desert' };
+
+            provider['homeworldCache'][homeworldUrl] = mockHomeworldResponse;
 
             const result = await provider.fetchHomeworld(homeworldUrl);
 
             expect(result).toEqual({ [homeworldUrl]: mockHomeworldResponse });
-            expect(cacheManager.set).toHaveBeenCalledWith(homeworldUrl, mockHomeworldResponse);
-        });
-
-        it('should return default values if fetching homeworld fails', async () => {
-            const homeworldUrl = 'https://swapi.dev/api/planets/1/';
-            cacheManager.get.mockResolvedValue(null);
-            (axios.get as jest.Mock).mockRejectedValue(new Error('Network Error'));
-
-            const result = await provider.fetchHomeworld(homeworldUrl);
-
-            expect(result).toEqual({ [homeworldUrl]: { name: 'Unknown', terrain: 'Unknown' } });
-            expect(cacheManager.set).not.toHaveBeenCalled();
+            expect(mockedAxios.get).not.toHaveBeenCalled();
         });
     });
 
+    describe('fetchHomeworl', () => {
+        it('should clear cache if cache duration has passed', async () => {
+            jest.spyOn(Date, 'now').mockReturnValueOnce(Date.now() + 400000); // Simulate time passing
+            provider['lastCacheUpdate'] = Date.now() - 300000; // Set last cache update to 5 minutes ago
+
+            await provider.fetchHomeworl([{ homeworld: 'https://swapi.dev/api/planets/1/' }]);
+
+            expect(provider['homeworldCache']).toEqual({});
+        });
+
+        it('should fetch homeworlds and cache them', async () => {
+            const homeworldUrl = 'https://swapi.dev/api/planets/1/';
+            const mockHomeworldResponse = { name: 'Tatooine', terrain: 'desert' };
+
+            mockedAxios.get.mockResolvedValueOnce({ data: mockHomeworldResponse });
+
+            await provider.fetchHomeworl([{ homeworld: homeworldUrl }]);
+
+            expect(provider['homeworldCache'][homeworldUrl]).toEqual(mockHomeworldResponse);
+        });
+
+        it('should not fetch homeworlds if they are already cached', async () => {
+            const homeworldUrl = 'https://swapi.dev/api/planets/1/';
+            const mockHomeworldResponse = { name: 'Tatooine', terrain: 'desert' };
+
+            // Pre-fill the cache
+            provider['homeworldCache'][homeworldUrl] = mockHomeworldResponse;
+
+            await provider.fetchHomeworl([{ homeworld: homeworldUrl }]);
+
+            expect(mockedAxios.get).not.toHaveBeenCalled();
+        });
+    });
 });
+
