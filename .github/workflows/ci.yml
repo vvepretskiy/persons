@@ -35,6 +35,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Start NestJS server
+        run: |
+          pnpm nx serve server &
+          sleep 10 # Wait for the server to start
+
       - name: Build Angular app
         run: pnpm nx build frontend --prod
 
