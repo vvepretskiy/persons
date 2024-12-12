@@ -22,8 +22,10 @@ export class PeopleProvider {
 
             await this.fetchHomeworl(data.results);
 
+            const cache = {...this.homeworldCache};
+
             const persons = data.results.map(({ homeworld: homeworldUrl, ...person }: Person) => {
-                const { name: homeworld, terrain } = this.homeworldCache[homeworldUrl] || UNKNOWN_HOMEWORLD;
+                const { name: homeworld, terrain } = cache[homeworldUrl] || UNKNOWN_HOMEWORLD;
                 return PersonSchema.parse({ ...person, homeworld, terrain });
             });
 

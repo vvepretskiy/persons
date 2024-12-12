@@ -52,15 +52,26 @@ Make sure you have the following installed:
    npm install -g pnpm
    pnpm i
 
-3. Run Backend (defualt url: http://localhost:3001/api)
+### Running the Application
+
+- **Run Docker Compose** (defualt url: http://localhost:4200/)
+
+   ```bash
+   docker-compose up --build
+
+- **Run Backend** (defualt url: http://localhost:3001/api)
 
    ```bash
    nx serve server
 
-4. Run Frontend (defualt url: http://localhost:4200)
+- **Run Frontend** (defualt url: http://localhost:4200/)
 
    ```bash
    nx serve frontend
+
+## API Endpoints
+
+[swapi.dev](https://swapi.dev/api/)
 
 ## Configuration
 The NestJS backend uses a .env file where users can configure cache settings and the environment for the frontend. Make sure to create a .env file in the root of the backend directory and set the necessary environment variables as needed.
@@ -71,10 +82,6 @@ The NestJS backend uses a .env file where users can configure cache settings and
     MAX_AMOUNT_HOMEWORLD_CACHE=100
     CACHE_DURATION=240000
     CACHE_DURATION_HOMEWORLD=240000
-
-## API Endpoints
-
-[swapi.dev](https://swapi.dev/api/)
 
 ## License
 MIT
