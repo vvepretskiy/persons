@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build Angular app
+        run: nx build frontend --prod
+
+      - name: Run Angular tests
+        run: nx test frontend -- --watch=false --bail
+
+      - name: Build NestJS app
+        run: nx build server
+
+      - name: Run NestJS tests
+        run: nx test server -- --watch=false --bail
