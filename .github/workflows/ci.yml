@@ -35,6 +35,12 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Build NestJS app
+        run: pnpm nx build server
+
+      - name: Run NestJS tests
+        run: pnpm nx test server -- --watch=false --bail
+
       - name: Start NestJS server
         run: |
           pnpm nx serve server &
@@ -45,9 +51,3 @@ jobs:
 
       - name: Run Angular tests
         run: pnpm nx test frontend -- --watch=false --bail
-
-      - name: Build NestJS app
-        run: pnpm nx build server
-
-      - name: Run NestJS tests
-        run: pnpm nx test server -- --watch=false --bail
