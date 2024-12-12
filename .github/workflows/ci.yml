@@ -28,13 +28,13 @@ jobs:
         run: pnpm install
 
       - name: Build Angular app
-        run: nx build frontend --prod
+        run: pnpm nx build frontend --prod
 
       - name: Run Angular tests
-        run: nx test frontend -- --watch=false --bail
+        run: pnpm nx test frontend -- --watch=false --bail
 
       - name: Build NestJS app
-        run: nx build server
+        run: pnpm nx build server
 
       - name: Run NestJS tests
-        run: nx test server -- --watch=false --bail
+        run: pnpm nx test server -- --watch=false --bail
