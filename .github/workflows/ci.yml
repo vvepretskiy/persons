@@ -21,6 +21,14 @@ jobs:
         with:
           node-version: '18'
 
+      - name: Cache pnpm
+        uses: actions/cache@v2
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+
       - name: Install pnpm
         run: npm install -g pnpm
 
@@ -38,3 +46,4 @@ jobs:
 
       - name: Run NestJS tests
         run: pnpm nx test server -- --watch=false --bail
+        
