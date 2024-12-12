@@ -43,7 +43,7 @@ jobs:
 
       - name: Start NestJS server
         run: |
-          pnpm nx serve server &
+          pnpm nx serve server --prod &
           sleep 10 # Wait for the server to start
 
       - name: Build Angular app
