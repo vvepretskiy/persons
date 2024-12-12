@@ -52,7 +52,7 @@ Make sure you have the following installed:
    npm install -g pnpm
    pnpm i
 
-3. Run Backend (defualt url: http://localhost:3000/api)
+3. Run Backend (defualt url: http://localhost:3001/api)
 
    ```bash
    nx serve server
