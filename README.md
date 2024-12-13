@@ -34,7 +34,7 @@ This project is a web application that retrieves and displays characters from th
 
 Make sure you have the following installed:
 
-- Node.js (version 14 or later)
+- Node.js (version 18 or later)
 - pnpm (Performant Node Package Manager)
 - Nx CLI
 
